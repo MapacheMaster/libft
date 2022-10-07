@@ -33,3 +33,4 @@ fclean
 	@$(ERASE) $(OBJ) $(NAME)
 
 re: fclean all
+#touching shit bc it doesnt really matter here
