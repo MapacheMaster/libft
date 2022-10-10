@@ -13,9 +13,9 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	const char	*a;
-	char		*b;
-	int			cont;
+	const char  *a;
+	char		   *b;
+	size_t      cont;
 
 	a = src;
 	b = dst;
