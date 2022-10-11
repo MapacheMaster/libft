@@ -9,27 +9,18 @@
 /*   Updated: 2022/09/26 18:58:57 by jlavalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-int	len(char *src)
-{
-	int	cont;
+#include "libft.h"
 
-	cont = 0;
-	while (src[cont] != '\0')
-		cont++;
-	return (cont);
-}
-
-size_t	ft_strlcat(char *restrict dst, char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
 {
 	int				dst_len;
 	int				src_len;
 	unsigned long	cont;
 	int				index;
 
-	dst_len = len(dst);
-	src_len = len(src);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
 	cont = dst_len;
 	index = 0;
 	while (src[index] != '\0')

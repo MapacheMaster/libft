@@ -9,13 +9,14 @@
 /*   Updated: 2022/09/21 18:24:30 by jlavalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	const char  *a;
-	char		   *b;
-	size_t      cont;
+	const char	*a;
+	char		*b;
+	size_t		cont;
 
 	a = src;
 	b = dst;
