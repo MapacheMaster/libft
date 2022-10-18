@@ -6,7 +6,7 @@
 /*   By: jlavalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:48:52 by jlavalle          #+#    #+#             */
-/*   Updated: 2022/10/04 14:48:56 by jlavalle         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:43:13 by jlavalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	c;
-	char	*st1;
-	char	*st2;
+	size_t			c;
+	unsigned char	*st1;
+	unsigned char	*st2;
 
-	st1 = (char *) s1;
-	st2 = (char *) s2;
+	st1 = (unsigned char *) s1;
+	st2 = (unsigned char *) s2;
 	c = 0;
-	while (st1[c] == st2[c] && c <= n)
+	while (c < n)
+	{
+		if (st1[c] != st2[c])
+			return ((int)(st1[c] - st2[c]));
 		c++;
-	return (st1[c] - st2[c]);
+	}
+	return (0);
 }
-
-/*#include <string.h>
+/*
+#include <string.h>
 int main()
 {
 	const char str1[50] = "Hello World\0 Ert";

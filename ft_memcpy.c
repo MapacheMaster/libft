@@ -18,8 +18,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char		*b;
 	size_t		cont;
 
-	a = src;
-	b = dst;
+	if (dst == '\0' && src == '\0')
+		return (NULL);
+	a = (char *) src;
+	b = (char *) dst;
 	cont = 0;
 	while (cont < n)
 	{
@@ -37,11 +39,11 @@ int main () {
    char dest2[50];
    strcpy(dest,"Heloooo!!");
    printf("Before memcpy dest = %s\n", dest);
-   memcpy(dest, src, strlen(src)+1);
+   memcpy((void *)0, (void *)0, 3);
    printf("After memcpy dest = %s\n", dest);
    strcpy(dest2,"Heloooo!!");
    printf("Before my memcpy dest = %s\n", dest2);
-   ft_memcpy(dest2, src2, strlen(src)+1);
+   ft_memcpy((void *)0, (void *)0, 3);
    printf("After my memcpy dest = %s\n", dest);
    return(0);
 }*/
