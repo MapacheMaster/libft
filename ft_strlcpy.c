@@ -14,19 +14,19 @@
 //#include <string.h>
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	cont;
-	int	len;
+	size_t	cont;
+	int		len;
 
 	cont = 0;
 	len = 0;
-	if (dstsize > 0)
+	if (dstsize != 0)
 	{
-		while (dstsize--)
+		while (src[cont] != '\0' && cont < (dstsize - 1))
 		{
 			dst[cont] = src[cont];
 			cont ++;
 		}
-		dst[cont - 1] = '\0';
+		dst[cont] = '\0';
 	}
 	while (src[len] != '\0')
 		len++;
