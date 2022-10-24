@@ -16,24 +16,24 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*a;
 	unsigned char	*b;
-	int				cont;
 
 	if (dst == '\0' && src == '\0')
 		return (NULL);
-	cont = 0;
 	a = (unsigned char *) src;
 	b = (unsigned char *) dst;
-	while (len--)
+	if (dst > src)
 	{
-		b[cont] = a[cont];
-		cont++;
+		while (len--)
+			b[len] = a[len];
 	}
+	else
+		ft_memcpy(dst, src, len);
 	return (dst);
 }
-int main()
+/*int main()
 {
 	char *src = "hello world";
 	char *dst = "my name is juan";
 	ft_memmove(dst, src, 5);
 	return (0);
-}
+}*/

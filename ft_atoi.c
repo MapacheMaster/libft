@@ -32,25 +32,33 @@ int	ft_atoi(const char *str)
 {
 	int	n;
 	int	r;
+	int	cont;
 
+	cont = 0;
 	n = 1;
 	r = 0;
-	while (space(*str))
-		str++;
-	while (*str)
+	while (space(str[cont]) == 1)
+		cont++;
+	while (str[cont] != '\0')
 	{
-		if (*str == 45)
+		if (str[cont] == 45)
 		{	
-			if (*str + 1 == 45 || space(*str + 1))
+			if (str[cont + 1] == 45 || space(str[cont + 1]))
 				break ;
 			n = -1;
 		}
-		else if (*str >= 48 && *str <= 57)
-			r = (r * 10) + ((char) *str - '0');
+		else if (str[cont] >= '0' && str[cont] <= '9')
+			r = (r * 10) + (str[cont] + '0');
 		else
 			return (r * n);
-		str++;
+		cont++;
 	}
+	return (0);
+}
+int main()
+{
+	char n = "\t\t\n\r1234lño0";
+	printf("%d\n", ft_atoi(n));
 	return (0);
 }
 
