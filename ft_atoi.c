@@ -21,52 +21,53 @@ int	space(char s)
 	return (0);
 }
 
-int	isnotnum(char c)
+int	count_space(const char *str)
 {
-	if (c <= 47 || c >= 58)
-		return (0);
-	return (1);
+	int	cont;
+
+	cont = 0;
+	while (space(str[cont]) == 1)
+		cont++;
+	return (cont);
+}
+
+int	count_minus(char c1, char c2)
+{
+	int	minus;
+
+	minus = 1;
+	if (c1 == '-' || c1 == '+')
+	{
+		if (!ft_isdigit(c2))
+			return (0);
+		if (c1 == '-')
+			minus = -1;
+	}
+	return (minus);
 }
 
 int	ft_atoi(const char *str)
 {
-	int	n;
-	int	r;
+	int	res;
 	int	cont;
+	int	minus;
 
-	cont = 0;
-	n = 1;
-	r = 0;
-	while (space(str[cont]) == 1)
-		cont++;
+	res = 0;
+	cont = count_space(str);
+	minus = count_minus(str[cont], str[cont + 1]);
 	while (str[cont] != '\0')
 	{
-		if (str[cont] == 45)
-		{	
-			if (str[cont + 1] == 45 || space(str[cont + 1]))
-				break ;
-			n = -1;
+		if (!ft_isdigit(str[cont]) && str[cont] != '+' && str[cont] != '-')
+			break ;
+		if (minus != 1 && minus != -1)
+			break ;
+		else if (ft_isdigit(str[cont]))
+		{
+			res = (res * 10) + (str[cont] - 48);
+			if (!ft_isdigit(str[cont + 1]))
+				return (res * minus);
 		}
-		else if (str[cont] >= '0' && str[cont] <= '9')
-			r = (r * 10) + (str[cont] + '0');
-		else
-			return (r * n);
 		cont++;
 	}
 	return (0);
 }
-int main()
-{
-	char n = "\t\t\n\r1234lño0";
-	printf("%d\n", ft_atoi(n));
-	return (0);
-}
-
-/*#include <stdlib.h>
-int main()
-{
-	const char str[50] = "\n\t\t-1234helloworld452";
-	printf("orig: %d\n", atoi(str));
-	printf("mine: %d", ft_atoi(str));
-	return (0);
-}*/
