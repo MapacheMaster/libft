@@ -20,12 +20,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *) s);
 	return (NULL);
 }
-/*#include <string.h>
-int main()
-{
-	const char str[50] ="holamundo";
-	printf("mio: %s\n", ft_strchr(str, '\0'));
-	printf("ori: %s", strchr(str, '\0'));
-	return (0);
-}
-*/

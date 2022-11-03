@@ -16,14 +16,11 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	cont;
 
-	cont = 0;
+	cont = ft_strlen(s);
 	if (s == '\0')
 		return (NULL);
 	while (*s != '\0')
-	{
-		cont++;
 		s++;
-	}
 	while (*s != c && cont >= 0)
 	{
 		s--;
@@ -33,13 +30,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *) s);
 	return (NULL);
 }
-/*#include <string.h>
-int main()
-{
-	char *src = "there is so \0ma\0ny \0 \\0 in t\0his stri\0ng !\0\0\0\0";
-	char *d1 = strrchr(((void *)0), '\0');
-	char *d2 = ft_strrchr(((void *)0), '\0');
-	printf("orig: %s\n", d1);
-	printf("mine: %s\n", d2);
-	return (0);
-}*/

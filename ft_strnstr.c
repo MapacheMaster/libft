@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	i = 0;
 	if (needle[i] == '\0')
 		return ((char *) haystack);
-	while (haystack[i] != '\0' && i < len)
+	while (len && haystack[i] != '\0' && i < len)
 	{
 		j = 0;
 		if (haystack[i] == needle[0])
@@ -39,9 +39,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 /*#include <string.h>
 int main()
 {
-	char str[] = "It's like finding a needle in a haystack!";
-	char to_find[] = "needle";
-	printf("mío :%s\n", ft_strnstr(str, to_find, -1));
-	printf("original :%s\n", strnstr(str, to_find, -1));
+	char str[] = "ABCDEFGH";
+	char to_find[] = "ABC";
+	printf("mío :%s\n", ft_strnstr(str, to_find, 2));
+	printf("original :%s\n", strnstr(str, to_find, 2));
 	return (0);
 }*/
