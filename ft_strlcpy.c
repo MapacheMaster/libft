@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <string.h>
+//
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	cont;
@@ -32,44 +32,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		len++;
 	return (len);
 }
-/*void test(int size)
-{
-    char string[] = "Hello there, Venus";
-    char buffer[19];
-    int r;
-
-    r = ft_strlcpy(buffer,string,size);
-
-    printf("Copied '%s' into '%s', length %d\n",
-            string,
-            buffer,
-            r
-          );
-}
-void test2(int size)
-{
-    char string[] = "Hello there, Venus";
-    char buffer[19];
-    int r;
-
-    r = strlcpy(buffer,string,size);
-
-    printf("sCopied '%s' into '%s', length %d\n",
-            string,
-            buffer,
-            r
-          );
-}
-int main()
-{
-    test(19);
-    test(10);
-    test(1);
-    test(0);
-	test2(19);
-    test2(10);
-    test2(1);
-    test2(0);
-
-    return(0);
-}*/

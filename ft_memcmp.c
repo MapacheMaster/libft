@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			c;
@@ -29,13 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*
-#include <string.h>
-int main()
-{
-	const char str1[50] = "Hello World\0 Ert";
-	const char str2[50] = "Hello World\0 Erte";
-	printf("orig: %d\n", memcmp(str1, str2, 30));
-	printf("mine: %d", ft_memcmp(str1, str2, 30));
-	return (0);
-}*/

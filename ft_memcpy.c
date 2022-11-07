@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	const char	*a;
@@ -30,20 +30,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (b);
 }
-/*#include <string.h>
-
-int main () {
-   const char src[50] = "http://www.tutorialspoint.com";
-   const char src2[50] = "http://www.tutorialspoint.com";
-   char dest[50];
-   char dest2[50];
-   strcpy(dest,"Heloooo!!");
-   printf("Before memcpy dest = %s\n", dest);
-   memcpy((void *)0, (void *)0, 3);
-   printf("After memcpy dest = %s\n", dest);
-   strcpy(dest2,"Heloooo!!");
-   printf("Before my memcpy dest = %s\n", dest2);
-   ft_memcpy((void *)0, (void *)0, 3);
-   printf("After my memcpy dest = %s\n", dest);
-   return(0);
-}*/

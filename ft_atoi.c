@@ -51,23 +51,26 @@ int	ft_atoi(const char *str)
 	int	res;
 	int	cont;
 	int	minus;
+	int	backup;
 
-	res = 0;
 	cont = count_space(str);
 	minus = count_minus(str[cont], str[cont + 1]);
-	while (str[cont] != '\0')
+	res = 0;
+	if (str[cont] == '+' || str[cont] == '-')
+		cont ++;
+	while (ft_isdigit(str[cont]) && (minus != 0))
 	{
-		if (!ft_isdigit(str[cont]) && str[cont] != '+' && str[cont] != '-')
-			break ;
-		if (minus != 1 && minus != -1)
-			break ;
-		else if (ft_isdigit(str[cont]))
+		backup = res;
+		res = (res * 10) + (str[cont] - 48);
+		if (backup == 214748364 && str[cont] == '8' && minus == -1)
+			return (-2147483648);
+		if (res < 0 || backup != (res - (str[cont] - 48)) / 10)
 		{
-			res = (res * 10) + (str[cont] - 48);
-			if (!ft_isdigit(str[cont + 1]))
-				return (res * minus);
+			if (minus == 1)
+				return (-1);
+			return (0);
 		}
 		cont++;
 	}
-	return (0);
+	return (res * minus);
 }
