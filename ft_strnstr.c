@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-//
+
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
@@ -36,12 +36,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-/*#include <string.h>
-int main()
-{
-	char str[] = "ABCDEFGH";
-	char to_find[] = "ABC";
-	printf("mío :%s\n", ft_strnstr(str, to_find, 2));
-	printf("original :%s\n", strnstr(str, to_find, 2));
-	return (0);
-}*/
