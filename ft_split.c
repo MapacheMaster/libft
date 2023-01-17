@@ -15,13 +15,15 @@
 int	nb_words(char const *s, char c)
 {
 	int		cont;
+	int		k;
 
+	k = 0;
 	cont = 0;
-	while (*s)
+	while (s[k] != '\0')
 	{
-		if (*s == c)
+		if (s[k] != c && s[k + 1] == c)
 			cont++;
-		s++;
+		k++;
 	}
 	return (cont);
 }
@@ -44,29 +46,29 @@ int	length(const char *s, int start, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	int		k;
 	int		i;
 	int		j;
+	int		k;
 
 	if (!s || !c)
 		return (NULL);
-	res = (char **)malloc((nb_words(s, c) + 1) * sizeof(char));
+	res = (char **) malloc((nb_words(s, c) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
-	i = 0;
-	j = 0;
-	k = 0;
+	i = 0; k = 0;
 	while (i < nb_words(s, c))
 	{
-		res[i] = (char *)malloc((length(s, i, c) + 1) * sizeof(char));
+		res[i] = (char *) malloc((length(s, k, c) + 1) * sizeof(char));
+		j = 0;
 		while (s[k] != c)
 		{
 			res[i][j] = s[k];
+			if (s[k + 1] == c)
+				i++;
 			j++;
 			k++;
 		}
-		j = 0;
-		i++;
+		k++;
 	}
 	return (res);
 }
