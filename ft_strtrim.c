@@ -83,7 +83,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = get_start(s1, set);
 	end = get_end(s1, set);
 	cont = 0;
-	trim = (char *) malloc((end - start + 1) * sizeof(char));
+	if (start > end)
+		return ("");
+	trim = (char *) ft_calloc(end - start + 1, sizeof(char));
 	if (trim == NULL)
 		return (NULL);
 	while (start < end)
@@ -92,6 +94,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 		cont++;
 		start++;
 	}
-	trim[cont] = '\0';
 	return (trim);
 }

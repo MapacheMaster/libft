@@ -19,54 +19,70 @@ int	nb_words(char const *s, char c)
 
 	k = 0;
 	cont = 0;
-	while (s[k] != '\0')
+	while (s[k])
 	{
-		if (s[k] != c && s[k + 1] == c)
+		if (s[k] != c && (s[k + 1] == c || s[k + 1] == '\0'))
 			cont++;
 		k++;
 	}
 	return (cont);
 }
 
-int	length(const char *s, int start, char c)
+int	length(const char *s, int k, char c)
 {
 	int		cont;
+	int		start;
 
+	start = k;
 	cont = 0;
-	while (s[start] != '\0')
+	while (s[start] != c)
 	{
-		if (s[start] == c)
-			break ;
 		start++;
 		cont++;
 	}
 	return (cont);
 }
 
+char	*cpy(int k, int len, const char *s)
+{
+	char	*cpy;
+	int		cont;
+
+	cont = 0;
+	cpy = (char *) ft_calloc(len + 1, sizeof(char));
+	if (cpy == 0)
+		return (0);
+	while (cont < len)
+	{
+		cpy[cont] = s[k];
+		cont++;
+		k++;
+	}
+	return (cpy);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		i;
-	int		j;
 	int		k;
+	int		len;
 
-	if (!s || !c)
+	if (!s)
 		return (NULL);
-	res = (char **) malloc((nb_words(s, c) + 1) * sizeof(char));
+	res = (char **) ft_calloc(nb_words(s, c) + 1, sizeof(char *));
 	if (!res)
 		return (NULL);
-	i = 0; k = 0;
+	i = 0;
+	k = 0;
 	while (i < nb_words(s, c))
 	{
-		res[i] = (char *) malloc((length(s, k, c) + 1) * sizeof(char));
-		j = 0;
-		while (s[k] != c)
+		if (s[k] != c)
 		{
-			res[i][j] = s[k];
-			if (s[k + 1] == c)
-				i++;
-			j++;
-			k++;
+			len = length(s, k, c);
+			res[i] = cpy(k, len, s);
+			i++;
+			k += len;
 		}
 		k++;
 	}
