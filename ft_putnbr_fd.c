@@ -15,7 +15,7 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	int		cont;
-	char	num[10];
+	char	num[11];
 
 	if (n == -2147483648)
 	{
@@ -36,7 +36,6 @@ void	ft_putnbr_fd(int n, int fd)
 		n /= 10;
 		cont++;
 	}
-	num[cont] = n;
 	while (cont--)
 		write (fd, &num[cont], 1);
 }

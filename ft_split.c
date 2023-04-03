@@ -35,7 +35,7 @@ int	length(const char *s, int k, char c)
 
 	start = k;
 	cont = 0;
-	while (s[start] != c)
+	while (s[start] != c && s[start] != '\0')
 	{
 		start++;
 		cont++;

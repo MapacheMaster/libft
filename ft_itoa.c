@@ -39,10 +39,10 @@ char	*ft_itoa(int n)
 	char	*res;
 	int		len;
 
-	len = get_len(n);
-	res = (char *) ft_calloc(len + 1, sizeof (char));
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	len = get_len(n);
+	res = (char *) ft_calloc(len + 1, sizeof (char));
 	if (!res)
 		return (NULL);
 	len--;
