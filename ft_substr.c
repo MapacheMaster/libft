@@ -14,18 +14,20 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int		cont;
-	char				*sub;
+	size_t	cont;
+	char	*sub;
 
-	if (!s || start < 0 || len < 0)
+	if (!s || start < 0)
 		return (NULL);
-	if (start > (unsigned int) ft_strlen(s))
+	if (start > (unsigned int) ft_strlen(s) || len < 0)
 		return (ft_strdup(""));
+	if (start + len > (unsigned long) ft_strlen(s))
+		len = ft_strlen(s) - start;
 	sub = (char *) ft_calloc((len + 1), sizeof (char));
 	if (!sub)
 		return (NULL);
 	cont = 0;
-	while (cont < len)
+	while (cont < len && s[start])
 	{
 		sub[cont] = s[start];
 		start++;
